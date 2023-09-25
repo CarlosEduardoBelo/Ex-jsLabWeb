@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/ex07.css">
+    <title>Exercício 07</title>
+</head>
+<body>
+    <h1>Manipulação de Vetor</h1>
+    <p>Informe a quantidade de valores a serem inseridos:</p>
+    <input type="number" id="quantidade" min="1">
+    <button onclick="criarVetor()">Criar Vetor</button>
+
+    <div id="valores"></div>
+    <button onclick="mostrarValores()">Mostrar Valores</button>
+
+    <h2>Maior Valor:</h2>
+    <div id="maior"></div>
+    <h2>Menor Valor:</h2>
+    <div id="menor"></div>
+
+    <a href="./index.html"><button type="button" class="btn btn-warning">Voltar</button></a>
+
+    <script>
+        var vetor = [];
+
+        function criarVetor() {
+            var quantidade = parseInt(document.getElementById('quantidade').value);
+            vetor = [];
+            for (var i = 0; i < quantidade; i++) {
+                var valor = parseFloat(prompt('Informe o valor ' + (i + 1) + ':'));
+                vetor.push(valor);
+            }
+        }
+
+        function mostrarValores() {
+            var valoresElement = document.getElementById('valores');
+            valoresElement.textContent = 'Valores Inseridos: ' + vetor.join(', ');
+
+            var maiorElement = document.getElementById('maior');
+            var menorElement = document.getElementById('menor');
+
+            if (vetor.length > 0) {
+                var maiorValor = Math.max(...vetor);
+                var menorValor = Math.min(...vetor);
+
+                maiorElement.textContent = 'Maior Valor: ' + maiorValor;
+                menorElement.textContent = 'Menor Valor: ' + menorValor;
+            } else {
+                maiorElement.textContent = 'Maior Valor: (Nenhum valor inserido)';
+                menorElement.textContent = 'Menor Valor: (Nenhum valor inserido)';
+            }
+        }
+    </script>
+</body>
+</html>

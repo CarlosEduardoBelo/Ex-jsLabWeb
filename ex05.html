@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/ex05.css">
+    <title>Exercício 05</title>
+</head>
+<body>
+    <h1>Calculadora de Custo de Assentamento de Piso</h1>
+    <p>Informe o comprimento e a largura do cômodo:</p>
+    <input type="number" id="comprimento" step="0.01" placeholder="Comprimento (metros)">
+    <input type="number" id="largura" step="0.01" placeholder="Largura (metros)">
+    <button onclick="calcularCusto()">Calcular Custo</button>
+
+    <h2>Custo Total:</h2>
+    <div id="resultado"></div>
+
+    <a href="./index.html"><button type="button" class="btn btn-warning">Voltar</button></a>
+
+    <script>
+        function calcularCusto() {
+            var comprimento = parseFloat(document.getElementById('comprimento').value);
+            var largura = parseFloat(document.getElementById('largura').value);
+            var precoPorMetroQuadrado = 36.00;
+
+            var area = comprimento * largura;
+            var custoTotal = area * precoPorMetroQuadrado;
+
+            var resultadoElement = document.getElementById('resultado');
+            resultadoElement.textContent = 'Custo Total: R$ ' + custoTotal.toFixed(2);
+        }
+    </script>
+</body>
+</html>
